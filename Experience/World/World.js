@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { EventEmitter } from "events";
 
 import Experience from "../Experience.js";
+import Environment from "./Environment.js";
 import Van from "./Van";
 import Floor from "./Floor";
 
@@ -19,7 +20,7 @@ export default class World extends EventEmitter{
         // this.van = new Van();
 
         this.resources.on("ready", () => {
-           
+            this.environment = new Environment();
             this.floor = new Floor();
             this.van = new Van();
             // this.controls = new Controls();

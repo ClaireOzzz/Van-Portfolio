@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import Experience from "../Experience.js";
-import GSAP from "gsap";
+// import GSAP from "gsap";
 //import GUI from "lil-gui";
 
 export default class Environment {
@@ -31,18 +31,33 @@ export default class Environment {
     // }
 
     setSunlight() {
-        this.sunLight = new THREE.DirectionalLight("#ffffff", 3);
-        this.sunLight.castShadow = true;
-        this.sunLight.shadow.camera.far = 20;
-        this.sunLight.shadow.mapSize.set(2048, 2048);
-        this.sunLight.shadow.normalBias = 0.05;
-        // const helper = new THREE.CameraHelper(this.sunLight.shadow.camera);
-        // this.scene.add(helper);
+        // this.sunLight = new THREE.DirectionalLight("#ffffff", 3);
+        // this.sunLight.castShadow = true;
+        // this.sunLight.shadow.camera.far = 20;
+        // this.sunLight.shadow.mapSize.set(2048, 2048);
+        // this.sunLight.shadow.normalBias = 0.05;
+        // // const helper = new THREE.CameraHelper(this.sunLight.shadow.camera);
+        // // this.scene.add(helper);
 
-        this.sunLight.position.set(-1.5, 7, 3);
-        this.scene.add(this.sunLight);
+        // this.sunLight.position.set(-1.5, 7, 3);
+        // this.scene.add(this.sunLight);
 
-        this.ambientLight = new THREE.AmbientLight("#ffffff", 1);
+        // this.ambientLight = new THREE.AmbientLight("#ffffff", 1);
+        // this.scene.add(this.ambientLight);
+
+        this.ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+        this.frontLight = new THREE.PointLight(0xffffff, 0.8);
+        this.backLight = new THREE.PointLight(0xffffff, 0.8);
+        this.frontLight.castShadow = true;
+        this.frontLight.shadow.mapSize.width = 1024;
+        this.frontLight.shadow.mapSize.height = 1024;
+        this.backLight.castShadow = true;
+        this.backLight.shadow.mapSize.width = 1024;
+        this.backLight.shadow.mapSize.height = 1024;
+        this.frontLight.position.set(20, 20, 20);
+        this.backLight.position.set(-20, -20, 20);
+        this.scene.add(this.frontLight);
+        this.scene.add(this.backLight);
         this.scene.add(this.ambientLight);
     }
 
