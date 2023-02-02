@@ -2,7 +2,7 @@ export default [
     {
         name: "van",
         type: "glbModel",
-        path: "/models/car1.glb",
+        path: "/models/car2.glb",
     },
     // {
     //     name: "screen",

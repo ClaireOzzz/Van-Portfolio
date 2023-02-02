@@ -44,6 +44,7 @@ export default class Van{
     }
 
     setAnimation() {
+        console.log(this.van.animations);
         this.mixer0 = new THREE.AnimationMixer(this.actualVan);
         this.noise = this.mixer0.clipAction(this.van.animations[0]);
         this.mixer1 = new THREE.AnimationMixer(this.actualVan);
