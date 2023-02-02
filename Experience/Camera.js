@@ -23,9 +23,7 @@ export default class Camera{
         this.scene.add(this.perspectiveCamera);
 
         this.perspectiveCamera.position.z = 10;
-        this.perspectiveCamera.position.y = 4.65;
-        this.perspectiveCamera.rotation.x = -Math.PI / 6;
-        
+        this.perspectiveCamera.position.y = 2;
     }
 
     setOrbitControls(){

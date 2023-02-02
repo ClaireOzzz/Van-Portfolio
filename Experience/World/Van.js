@@ -10,17 +10,13 @@ export default class Van{
         this.actualVan = this.van.scene; //does not contain animatons, only meshes
         console.log(this.actualVan);
         this.vanChildren = {};
-       
-        // const geometry = new THREE.BoxGeometry(1,1,1);
-        // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        // const cube = new THREE.Mesh(geometry, material);
-        // this.scene.add(cube);
-        // console.log(cube.position);
 
         this.setModel();
     }
 
     setModel() {
+        this.actualVan.receiveShadow = true;
+        this.actualVan.castShadow = true;
         this.actualVan.children.forEach((child) => {
             child.castShadow = true;
             child.receiveShadow = true;
@@ -32,7 +28,12 @@ export default class Van{
                 });
             }
         })
+        this.actualVan.scale.set( 1.1, 1.1, 1.1 );
         this.scene.add(this.actualVan)
+        this.actualVan.position.y = -0.9;
+        this.actualVan.rotation.y = Math.PI / 4;
+
+        
     }
 
 

@@ -21,7 +21,9 @@ export default class Renderer{
             antialias: true,
         })
         this.renderer.shadowMap.enabled = true;
+        this.renderer.shadowMap.renderSingleSided = false;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        this.renderer.setClearColor("white");
 
         this.renderer.setSize(this.sizes.width, this.sizes.height);
         this.renderer.setPixelRatio(this.sizes.pixelRatio);
@@ -30,11 +32,12 @@ export default class Renderer{
 
     resize() {
         this.renderer.setSize(this.sizes.width, this.sizes.height);
-        this.renderer.setPixelRatio(this.sizes.pixelRatio);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
     }
 
     update() {
         this.renderer.render(this.scene, this.camera.perspectiveCamera);
+       
     }
 
 }

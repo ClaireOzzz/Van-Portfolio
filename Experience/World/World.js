@@ -26,6 +26,8 @@ export default class World extends EventEmitter{
             // this.controls = new Controls();
             this.emit("worldready");
         });
+
+        
     }
 
     resize() {
