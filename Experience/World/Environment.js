@@ -30,7 +30,7 @@ export default class Environment {
         this.backLight.castShadow = true;
         this.backLight.shadow.mapSize.width = 1024;
         this.backLight.shadow.mapSize.height = 1024;
-        this.frontLight.position.set(20, 20, 20);
+        this.frontLight.position.set(20,20, 20);
         this.backLight.position.set(-20, -20, 20);
         this.scene.add(this.frontLight);
         this.scene.add(this.backLight);

@@ -17,6 +17,11 @@ export default class Van{
     setModel() {
         this.actualVan.receiveShadow = true;
         this.actualVan.castShadow = true;
+        this.actualVan.traverse((actualVan) => {
+            if (actualVan.isMesh) {
+                actualVan.castShadow = actualVan.receiveShadow = true;
+            }
+          });
         this.actualVan.children.forEach((child) => {
             child.castShadow = true;
             child.receiveShadow = true;
