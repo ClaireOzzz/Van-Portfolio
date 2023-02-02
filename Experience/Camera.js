@@ -10,6 +10,7 @@ export default class Camera{
         this.canvas = this.experience.canvas;
         
         this.createPerspectiveCamera();
+        this.setOrbitControls();
     }
 
     createPerspectiveCamera() {
@@ -27,13 +28,19 @@ export default class Camera{
         
     }
 
+    setOrbitControls(){
+        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
+        this.controls.enableDamping = true;
+        this.controls.enableZoom = false;
+    }
+
     resize() {
         this.perspectiveCamera.aspect = this.sizes.aspect;
         this.perspectiveCamera.updateProjectionMatrix();
     }
 
     update() {
-
+        this.controls.update();
     }
 
 }
