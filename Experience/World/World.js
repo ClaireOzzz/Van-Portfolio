@@ -35,7 +35,9 @@ export default class World extends EventEmitter{
     }
 
     update() {
-       
+        if (this.van) {
+            this.van.update();
+        }
     }
 
 }

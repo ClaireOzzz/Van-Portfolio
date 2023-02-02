@@ -6,12 +6,14 @@ export default class Van{
         this.experience = new Experience(); 
         this.scene = this.experience.scene;
         this.resources = this.experience.resources;
+        this.time = this.experience.time;
         this.van = this.resources.items.van; //Van comes from items, items which looks at assets.name
         this.actualVan = this.van.scene; //does not contain animatons, only meshes
-        console.log(this.actualVan);
+       
         this.vanChildren = {};
 
         this.setModel();
+        this.setAnimation();
     }
 
     setModel() {
@@ -41,13 +43,23 @@ export default class Van{
         
     }
 
+    setAnimation() {
+        this.mixer0 = new THREE.AnimationMixer(this.actualVan);
+        this.noise = this.mixer0.clipAction(this.van.animations[0]);
+        this.mixer1 = new THREE.AnimationMixer(this.actualVan);
+        this.wheels = this.mixer1.clipAction(this.van.animations[1]);
+        this.noise.play();
+        this.wheels.play();
+    }
+
 
     resize() {
         
     }
 
     update() {
-       
+        this.mixer0.update(this.time.delta * 0.0009);
+        this.mixer1.update(this.time.delta * 0.0009);
     }
 
 }
